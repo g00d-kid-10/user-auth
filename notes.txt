@@ -1,0 +1,9 @@
+Things Learned:
+    1. Password is hashed using hooks in the User model [using sequelize] before creating it into the database.
+    2. Now creating JSON Web Token. [Using JWT]
+    3. Put that token in the cookie. Again, send it to the browser. [Using cookie-parser]
+
+
+Pending Things to do:
+    1. Minimum Password length validation.
+    2.

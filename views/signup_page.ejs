@@ -1,0 +1,55 @@
+<%- include('partials/header') %>
+<form id="signup-form">
+    <div>
+        <label for="firstname"></label>
+        <input type="text" name="firstname" placeholder="Firstname" >
+        <div id="fnameErr"></div>
+        <label for="lastname"></label>
+        <input type="text" name="lastname" placeholder="Lastname" >
+        <div id="lnameErr"></div>
+        <label for="username"></label>
+        <input type="text" name="username" placeholder="Username" >
+        <div id="unameErr"></div>
+        <label for="email"></label>
+        <input type="email" name="email" placeholder="Email" >
+        <div id="emailErr"></div>
+        <label for="password"></label>
+        <input type="password" name="password" placeholder="Password" >
+        <div id="passErr"></div>
+        <button>Sign Up</button>
+    </div>
+</form>
+
+<script>
+const form = document.getElementById('signup-form');
+form.addEventListener('submit', async (element)=> {
+    element.preventDefault();
+    const firstname = form.firstname.value;
+    const lastname = form.lastname.value;
+    const username = form.username.value;
+    const email = form.email.value;
+    const password = form.password.value;
+
+    try {
+        const result = await fetch('/signup', {
+            method: 'POST',
+            body: JSON.stringify({ firstname, lastname, username, email, password}),
+            headers: { 'Content-Type' : 'application/json' }
+        })
+        const data = await result.json();
+        if(data.errors) {
+            document.getElementById('fnameErr').textContent = data.errors.firstname;
+            document.getElementById('lnameErr').textContent = data.errors.lastname;
+            document.getElementById('unameErr').textContent = data.errors.username;
+            document.getElementById('emailErr').textContent = data.errors.email;
+            document.getElementById('passErr').textContent = data.errors.password;
+        }
+        if(data.user) {
+            location.assign('/check-log');
+        }
+    } catch(err) {
+        console.log(err)
+    }
+})
+</script>
+<%- include('partials/footer') %>

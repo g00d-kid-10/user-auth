@@ -1,1 +1,63 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+:root {
+    --blue : #04151F;
+    --green : #183a37;
+    --skin : #efd6ac;
+    --orange : #c44900;
+    --purple : #432534;
+}
 
+header {
+    display: flex;
+    align-items: center;
+    background-color: #04151F;
+    max-height: min-content;
+    min-height: 8vh;
+}
+
+header > a{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    border: 0;
+    border-radius: 100px;
+    font-family:'Times New Roman', Times, serif;
+    font-weight: 600;
+    margin: 0 10px;
+    width: 8rem;
+    padding: 10px 0;
+    box-shadow: 0 0 10px rgba(239, 214, 172, 0.2);
+    transition: 0.4s;
+    text-decoration: none;
+    color: var(--skin);
+    background-color: var(--green);
+}
+
+header > #home {
+    color: var(--skin);
+    background-color: var(--green);
+    border: 1px solid var(--skin);
+}
+
+header > #login {
+    color: var(--skin);
+    position: absolute;
+    right: 0px;
+    background-color: var(--green);
+    border: 1px solid var(--skin);
+}
+
+header > #signup {
+    position: absolute;
+    right: 9rem;
+}
+
+header > a:hover {
+    color: var(--green);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.6);
+    background-color: var(--skin);
+}

@@ -7,3 +7,6 @@ Things Learned:
 Pending Things to do:
     1. Minimum Password length validation.
     2.
+
+Quote:
+	“If your contribution has been vital there will always be somebody to pick up where you left off, and that will 	be your claim to immortality.”

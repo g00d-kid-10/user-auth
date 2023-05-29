@@ -10,10 +10,19 @@
     --purple : #432534;
 }
 
+body {
+    width: 100vw;
+    height: 100vh;
+    background-color: #fff9f0;
+    overflow-x: hidden;
+}
+
+/* HEADER CSS OPEN */
+
 header {
     display: flex;
     align-items: center;
-    background-color: #04151F;
+    background-color: var(--blue);
     max-height: min-content;
     min-height: 8vh;
 }
@@ -40,7 +49,7 @@ header > a{
 header > #home {
     color: var(--skin);
     background-color: var(--green);
-    border: 1px solid var(--skin);
+    border: 1px solid var(--orange);
 }
 
 header > #login {
@@ -48,7 +57,15 @@ header > #login {
     position: absolute;
     right: 0px;
     background-color: var(--green);
-    border: 1px solid var(--skin);
+    border: 1px solid var(--orange);
+}
+
+header > #logout {
+    color: var(--skin);
+    position: absolute;
+    right: 0px;
+    background-color: var(--green);
+    border: 1px solid var(--orange);
 }
 
 header > #signup {
@@ -61,3 +78,93 @@ header > a:hover {
     box-shadow: 0 0 10px rgba(255, 255, 255, 0.6);
     background-color: var(--skin);
 }
+
+/* HEADER CSS CLOSE*/
+
+/* LANDING PAGE CSS OPEN*/
+
+.landing {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    top: 10rem;
+    width: 100%;
+}
+
+.landing > #heading {
+    position: relative;
+    top: 3rem;
+    color: var(--orange);
+    font-size: 12rem;
+}
+
+.landing > #desc {
+    position: relative;
+    top: 2rem;
+    color: var(--green);
+    font-size: 3.1rem;
+    font-weight: 600;
+}
+
+.landing > #call {
+    position: relative;
+    top: 4rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    background-color: var(--orange);
+    font-weight: 800 ;
+    font-size: 1.3rem;
+    border: 3px solid var(--green);
+    border-radius: 50px;
+    color: var(--skin);
+    width: 12rem;
+    height: 3rem;
+    transition: 0.4s;
+
+}
+
+.landing > #call:hover {
+    color: var(--green);
+    box-shadow: 0 0 5px var(--green);
+    background-color: var(--skin);
+}
+/* LANDING PAGE CSS CLOSE */
+
+/* IMAGES CSS OPEN */
+.intro {
+    display: flex;
+    justify-content: center;
+    margin-top: 3rem;
+    font-size: xx-large;
+    color: var(--green);
+}
+
+.container {
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.container .image {
+    display: flex;
+    flex-direction: column;
+    font-style: oblique;
+    font-size: 2rem;
+    margin: 3rem;
+    color: var(--orange);
+}
+
+.image > img {
+    border: 2px solid var(--blue);
+    border-radius: 10px;
+    width: 600px;
+    height: 300px;
+    object-fit: cover;
+    margin-bottom: 10px;
+}
+/* IMAGES CSS CLOSE */

@@ -18,7 +18,7 @@ app.use(bodyparser.urlencoded({extended: true}));
 app.use(cookieParser());
 
 //Setting Up View Engines & Assets
-app.use(express.static('assets'));
+app.use(express.static(path.join(__dirname, 'assets')));
 app.set('view engine', 'ejs');
 
 //Loading Routes

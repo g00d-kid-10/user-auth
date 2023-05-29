@@ -1,7 +1,31 @@
-<a href="/">HOME</a>
-<a href="/login">LOGIN</a>
-<a href="/signup">SINGUP</a>
-<a href="/logout">LOGOUT</a>
-<div id="username">Hi <%= user.username%>, You are logged in.</div>
-<div>Authenticated Content</div>
+<%- include('partials/logheader')  %>
+<div class="intro">
+    Hi <%= user.username%>, Take a look at these impactful designs.
+</div>
+<div class="container">
+    <div class="image">
+        <img src="img/b3-chair.jpg" alt="image" class="logo" />
+        B3 Chair
+    </div>
+    <div class="image">
+        <img src="img/barcelona-chair.jpg" alt="image" class="logo" />
+        Barcelona Chair
+    </div>
+    <div class="image">
+        <img src="img/tea-infuser.jpg" alt="image" class="logo" />
+        Tea Infuser
+    </div>
+    <div class="image">
+        <img src="img/barcelona-pavailion.jpg" alt="image" class="logo" />
+        Barcelona Pavailion
+    </div>
+    <div class="image">
+        <img src="img/triadisches-ballett.jpg" alt="image" class="logo" />
+        Triadisches Ballett
+    </div>
+    <div class="image">
+        <img src="img/villa-tugendhat.jpg" alt="image" class="logo" />
+        Villa Tugendhat
+    </div>
+</div>
 <%- include('partials/footer')  %>

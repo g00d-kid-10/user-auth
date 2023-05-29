@@ -10,3 +10,11 @@ Pending Things to do:
 
 Quote:
 	“If your contribution has been vital there will always be somebody to pick up where you left off, and that will 	be your claim to immortality.”
+
+vim notes 
+i -> to toggle insert mode
+esc -> to toggle command mode from insert mode
+:q! -> to quit without saving
+:x or :wq -> to write save and abort
+:w -> save changes but don't exit
+:w newname -> to rename file and save changes

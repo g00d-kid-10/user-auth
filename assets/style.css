@@ -145,6 +145,7 @@ header > a:hover {
 .container {
     display: flex;
     width: 100%;
+    height: 80%;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
@@ -153,6 +154,7 @@ header > a:hover {
 .container .image {
     display: flex;
     flex-direction: column;
+    cursor: crosshair;
     font-style: oblique;
     font-size: 2rem;
     margin: 3rem;
@@ -168,3 +170,109 @@ header > a:hover {
     margin-bottom: 10px;
 }
 /* IMAGES CSS CLOSE */
+
+/* LOGIN FORM CSS OPEN */
+
+.login-box, .signup-box {
+    display: flex;
+    flex-direction: column;
+    width: 15rem;
+    border: 1px solid var(--blue);
+    padding: 15px 30px;
+    gap: 20px;
+    background-color: var(--skin);
+    border: 2px solid var(--green);
+    border-radius: 20px;
+}
+
+.form-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 7px;
+}
+
+input[type="email"], input[type="password"], input[type="text"] {
+    appearance: none;
+    cursor: pointer;
+    width: 100%;
+    background-color: white;
+    line-height: 2em;
+    font-family:'Times New Roman', Times, serif;
+    color: var(--orange);
+    border: 1px solid var(--green);
+    border-radius: 10px;
+    padding: 5px;
+
+    &:hover{
+        opacity: 0.9;
+    }
+    &:active{
+        transform: scale(0.95);
+    }
+
+    textarea{
+        resize: none;
+        line-height: 1em;
+        &:focus, &:not(:placeholder-shown){
+            + label{
+            top: -25%;
+            }
+        }
+    }
+}
+
+button[type="submit"] {
+    appearance: none;
+    cursor: pointer;
+    width: 60%;
+    background: var(--orange);
+    line-height: 2em;
+    font-family:'Times New Roman', Times, serif;
+    font-size: large;
+    font-weight: bold;
+    color: white;
+    border: 1px solid var(--blue);
+    border-radius: 100px;
+    padding: 5px;
+    opacity: 0.8;
+
+
+    &:hover{
+        opacity: 1;
+    }
+    &:active{
+        transform: scale(0.90);
+    }
+
+    textarea{
+        resize: none;
+        line-height: 1em;
+        &:focus, &:not(:placeholder-shown){
+            + label{
+            top: -25%;
+            }
+        }
+    }
+}
+
+h1 {
+    color: var(--green);
+}
+
+.errortext {
+    animation: popup 1s ease-in-out;
+    color: red;
+}
+
+@keyframes popup {
+    from {
+        transform: scale(0);
+    }
+    
+    to {
+        transform: scale(1);
+    }
+}
+
+/* LOGIN FORM CSS CLOSE */

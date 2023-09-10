@@ -39,8 +39,8 @@ exports.home = (req, res) => {
 };
 
 //Authenticated Content Service
-exports.check_log = (req, res) => {
-  res.render("reg_status");
+exports.classified_page = (req, res) => {
+  res.render("classified_page");
 };
 
 //Signup Page Service
@@ -68,7 +68,7 @@ exports.signup = async (req, res) => {
     });
     const token = createToken(user.id);
     res.cookie('user_token', token, {httpOnly: true, maxAge: maxAge * 1000})
-    res.status(201).json({user: user.id});
+    res.status(201).json({id : user.id});
   } catch (err) {
     const errors = errorHandler(err);
     res.status(400).json({errors});
@@ -80,9 +80,10 @@ exports.login = async (req, res) => {
   try {
     const { email, password } = req.body;
     const user = await User.isAuthorised(email, password);
+    console.log(user.id);
     const token = createToken(user);
     res.cookie('user_token', token, {httpOnly: true, maxAge: maxAge * 1000})
-    res.json({user})
+    res.json({id : user.id})
   } catch (err) {
     const errors = errorHandler(err);
     res.json({errors});

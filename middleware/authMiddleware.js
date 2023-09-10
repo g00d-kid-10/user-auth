@@ -4,38 +4,22 @@ const { User } = require('../models');
 exports.requireAuth = (req, res, next) => {
   const token = req.cookies.user_token;
   if (token) {
-    jwt.verify(token, 'secret', (err, decodedToken) => {
+    jwt.verify(token, 'secret', async (err, decodedToken) => {
       if (err) {
         console.log(err);
+        res.locals.user = null;
         res.redirect("/login");
       } else {
+        console.log("decodedToken", decodedToken);
+        console.log("decodedTokencred", decodedToken.cred);
+        console.log("decodedTokencredid", decodedToken.cred.id);
+        const current = await User.findOne({where : {id : decodedToken.cred}});
+        res.locals.user = current;
         next();
       }
     });
   } else {
+    res.locals.user = null;
     res.redirect("/login");
   }
 };
-
-exports.checkUser = (req, res, next) => {
-  const token = req.cookies.user_token;
-  if(token) {
-    jwt.verify(token, 'secret', async (err, decodedToken) => {
-      if(err) {
-        res.locals.user = null;
-        next()
-      } else {
-        const current = await User.findOne({where: {id: decodedToken.cred.id}})
-        // console.log("@@", decodedToken);
-        console.log("$", current.username);
-        res.locals.user = current;
-        next();
-      }
-    })
-  } else {
-    res.locals.user = null;
-    next();
-  }
-}
-
-// module.exports = { requireAuth, checkUser };

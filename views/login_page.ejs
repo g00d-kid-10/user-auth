@@ -1,15 +1,18 @@
 <%- include('partials/header') %>
-    <form id="login-form">
-        <div>
-            <label for="email"></label>
-            <input type="email" name="email" placeholder="Email">
-            <div id="emailErr"></div>
-            <label for="password"></label>
-            <input type="password" name="password" placeholder="Password">
-            <div id="passErr"></div>
-            <button>Login</button>
+    <div class = "container">
+        <div class = "login-box">
+            <h1>Log In</h1>
+            <form id="login-form" class = "form-container">
+                    <label for="email"></label>
+                    <input type="email" name="email" placeholder="Email">
+                    <div id="emailErr" class="errortext"></div>
+                    <label for="password"></label>
+                    <input type="password" name="password" placeholder="Password">
+                    <div id="passErr" class="errortext"></div>
+                    <button type="submit">LOGIN</button>
+            </form>
         </div>
-    </form>
+    </div>
 
     <script>
         const form = document.getElementById('login-form');
@@ -24,13 +27,17 @@
                     body: JSON.stringify({ email, password }),
                     headers: { 'Content-Type': 'application/json' }
                 })
-                const data = await result.json();
-                if (data.errors) {
-                    document.getElementById('emailErr').textContent = data.errors.email;
-                    document.getElementById('passErr').textContent = data.errors.password;
+        console.log("result", result);
+
+                const user = await result.json();
+        console.log("user", user);
+
+                if (user.errors) {
+                    document.getElementById('emailErr').textContent = user.errors.email;
+                    document.getElementById('passErr').textContent = user.errors.password;
                 }
-                if (data.user) {
-                    location.assign('/check-log');
+                if (user.id) {
+                    location.assign(`/user:${user.id}`);
                 }
             } catch (err) {
                 console.log(err)

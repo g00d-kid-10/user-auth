@@ -4,9 +4,8 @@ const controller = require('../controller/controller')
 const authMiddleware = require('../middleware/authMiddleware')
 
 //routes
-route.get('*', authMiddleware.checkUser)
 route.get('/', controller.home)
-route.get('/check-log', authMiddleware.requireAuth, controller.check_log)
+route.get('/user:id', authMiddleware.requireAuth, controller.classified_page)
 route.get('/signup', controller.signup_page)
 route.get('/login', controller.login_page)
 
